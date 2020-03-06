@@ -11,3 +11,8 @@ History
 ------------------
 
 * Stop support on python 3.5 due to f-string
+
+0.1.2 (2020-03-06)
+------------------
+
+* Ensure tox passed
