@@ -6,7 +6,7 @@ import pytest
 
 from click.testing import CliRunner
 
-from calh import calh
+# from calh import calh
 from calh import cli
 
 
