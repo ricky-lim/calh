@@ -13,4 +13,4 @@ deploy:
   on:
     tags: true
     repo: ricky-lim/calh
-    python: 3.8
+    python: 3.7
