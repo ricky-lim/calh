@@ -17,7 +17,9 @@ calh
 .. image:: https://pyup.io/repos/github/ricky-lim/calh/shield.svg
      :target: https://pyup.io/repos/github/ricky-lim/calh/
      :alt: Updates
-
+     
+.. image:: https://mybinder.org/badge_logo.svg
+ :target: https://mybinder.org/v2/gh/ricky-lim/calh/master?filepath=examples%2Fexample.ipynb
 
 
 Calendar Heatmap
