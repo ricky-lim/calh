@@ -48,10 +48,13 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 calh tests
+	black calh
+	nbblack examples/*ipynb
+
 
 test: ## run tests quickly with the default Python
-	pytest
+	pytest --mpl
+	jupyter nbconvert --execute examples/example.ipynb
 
 test-all: ## run tests on every Python version with tox
 	tox
@@ -83,3 +86,6 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+test-data:
+	python tests/utils.py create-test-data

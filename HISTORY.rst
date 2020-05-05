@@ -2,6 +2,12 @@
 History
 =======
 
+1.0.0 (2020-05-05)
+------------------
+
+* support calendar filtering
+* support calendar visualization as a heatmap
+
 0.1.2 (2020-03-06)
 ------------------
 

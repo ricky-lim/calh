@@ -1,5 +1,5 @@
 ====
-calh [WIP]
+calh
 ====
 
 
@@ -22,6 +22,8 @@ calh [WIP]
 
 Calendar Heatmap
 
+Inspired by https://github.com/voila-gallery/voila-spotify
+
 
 * Free software: Apache Software License 2.0
 * Documentation: https://calh.readthedocs.io.
@@ -30,7 +32,8 @@ Calendar Heatmap
 Features
 --------
 
-* TODO
+* Filtering calendar
+* Visualizing calendar
 
 Credits
 -------
