@@ -103,7 +103,8 @@ ENV/
 
 # IDE settings
 .vscode/
-.idea/
 
 # Environment
 .envrc
+
+
