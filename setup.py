@@ -12,14 +12,14 @@ with open("HISTORY.rst") as history_file:
 
 requirements = [
     "Click>=7.0",
-    "click-spinner==0.1.10",
-    "ics==0.7",
-    "matplotlib==3.2.1",
-    "notebook==6.0.3",
-    "numpy==1.18.3",
-    "pandas==1.0.3",
-    "pyprojroot==0.2.0",
-    "seaborn==0.10.1",
+    "click-spinner>=0.1.10",
+    "ics>=0.7",
+    "matplotlib>=3.2.1",
+    "notebook>=6.0.3",
+    "numpy>=1.18.3",
+    "pandas>=1.0.3",
+    "pyprojroot>=0.2.0",
+    "seaborn>=0.10.1",
 ]
 
 setup_requirements = ["pytest-runner", "ipython==7.13.0"]
@@ -58,6 +58,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/ricky-lim/calh",
-    version="1.0.2",
+    version="1.0.3",
     zip_safe=False,
 )

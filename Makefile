@@ -92,3 +92,21 @@ install: clean ## install the package to the active Python's site-packages
 
 test-data:
 	python tests/utils.py create-test-data
+
+commit-master:
+	git push
+	git push --tags
+
+
+# Checklist before major release
+# 1. Add history
+# git add HISTORY.rst
+# git commit -m "Changelog for upcoming release 1.0.0"
+# 2. bumpversion major
+# 3. python setup.py develop
+# 4. make test-all
+# 5. make dist
+# This is to check if distribution is ok
+# 6. make check
+# 7. make release
+# 8. make commit-master
