@@ -7,7 +7,7 @@ from . import CURR_DIR
 
 
 def test_date_df_for_heatmap_from_ics_input():
-    hm = Heatmap(input=CURR_DIR / "data" / "ics" / "02-04_05-05-2020_urlab.ics")
+    hm = Heatmap(input_data=CURR_DIR / "data" / "ics" / "02-04_05-05-2020_urlab.ics")
     expected_date_df = pd.DataFrame(
         [
             {"name": 1, "weekday": 1, "date": "2020-02-04", "week": 6, "month": 2},
@@ -40,6 +40,6 @@ def test_date_df_for_heatmap_from_ics_input():
 def test_create_heatmap_from_ics_input():
     input_file = CURR_DIR / "data" / "ics" / "02-04_05-05-2020_urlab.ics"
     output_file = CURR_DIR / "data" / "png" / "02-04_05-05-2020_urlab.png"
-    hm = Heatmap(input=input_file, full_year=True)
+    hm = Heatmap(input_data=input_file, full_year=True)
     hm.draw(title="test")
     return hm.result

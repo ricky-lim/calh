@@ -16,11 +16,11 @@ from calh.filter import CalendarFilter
 
 
 class Heatmap:
-    def __init__(self, input: Union[Path, List], full_year=True):
+    def __init__(self, input_data: Union[Path, List], full_year=True):
         """Generate heatmap
 
         Arguments:
-            input {Path | List} -- filepath to the input file or a python list
+            input_data {Union[Path, List]} -- Input data can be a filepath (Path) or a python list object
 
         Keyword Arguments:
             full_year {bool} -- Show the whole year, if True.
@@ -30,17 +30,17 @@ class Heatmap:
             ValueError: if the file_path contains no data
         """
 
-        self.input = input
+        self.input_data = input_data
         self.full_year = full_year
-        data = self.read_data(input)
+        data = self.read_input_data(input_data)
         self.df = self.create_df(data)
         self.result = None
 
-    def read_data(self, input):
+    def read_input_data(self, input_data):
         """Reading input data
 
         Arguments:
-            input {Union[Path, List]} -- Input can be a filepath (Path) or a python list object
+            input_data {Union[Path, List]} -- Input data can be a filepath (Path) or a python list object
 
         Raises:
             ValueError: if Object is not a list
@@ -51,12 +51,12 @@ class Heatmap:
             ".json": self.read_json,
         }
         try:
-            reader = input_reader[Path(self.input).suffix]
-            data = reader(self.input)
+            reader = input_reader[Path(input_data).suffix]
+            data = reader(input_data)
         except TypeError:
-            if isinstance(self.input, list):
+            if isinstance(self.input_data, list):
                 # This is a shallow-copy to keep data immutable!
-                data = self.input.copy()
+                data = input_data.copy()
             else:
                 raise ValueError("Unknown input")
         if not data:
@@ -217,6 +217,6 @@ class Heatmap:
     def create(
         cls, input_file, output_file, title, full_year=True, width=None, height=None
     ):
-        hm = Heatmap(input=input_file, full_year=full_year)
+        hm = Heatmap(input_data=input_file, full_year=full_year)
         hm.draw(title=title, width=width, height=height)
         hm.save_as(output_file=output_file)

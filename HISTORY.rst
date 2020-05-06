@@ -2,11 +2,16 @@
 History
 =======
 
+2.0.0 (2020-05-06)
+------------------
+
+* Input parameter refactored into input_data for `Heatmap` class API.
+
 1.0.0 (2020-05-05)
 ------------------
 
-* support calendar filtering
-* support calendar visualization as a heatmap
+* Support calendar filtering
+* Support calendar visualization as a heatmap
 
 0.1.2 (2020-03-06)
 ------------------
