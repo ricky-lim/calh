@@ -108,5 +108,4 @@ commit-master:
 # 5. make dist
 # This is to check if distribution is ok
 # 6. make check
-# 7. make release
 # 8. make commit-master
