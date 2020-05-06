@@ -16,7 +16,7 @@ from calh.filter import CalendarFilter
 
 
 class Heatmap:
-    def __init__(self, input_data: Union[Path, List], full_year=True):
+    def __init__(self, input_data: Union[Path, List], full_year=True, utc=True):
         """Generate heatmap
 
         Arguments:
@@ -25,6 +25,7 @@ class Heatmap:
         Keyword Arguments:
             full_year {bool} -- Show the whole year, if True.
             Otherwise it will show only months where events are found (default: {True})
+            utc {bool} -- UTC DatetimeIndex  if True.
 
         Raises:
             ValueError: if the file_path contains no data
@@ -32,8 +33,9 @@ class Heatmap:
 
         self.input_data = input_data
         self.full_year = full_year
+        self.utc = utc
         data = self.read_input_data(input_data)
-        self.df = self.create_df(data)
+        self.df = self.create_df(data=data, utc=self.utc)
         self.result = None
 
     def read_input_data(self, input_data):
@@ -80,9 +82,9 @@ class Heatmap:
         return result
 
     @staticmethod
-    def create_df(data):
+    def create_df(data, utc):
         df = pd.DataFrame(data)
-        df["start"] = pd.to_datetime(df["start"])
+        df["start"] = pd.to_datetime(df["start"], utc=utc)
         df["date"] = df["start"].dt.floor("d")
         return df
 

@@ -22,7 +22,7 @@ def test_date_df_for_heatmap_from_ics_input():
             {"name": 1, "weekday": 0, "date": "2020-05-04", "week": 19, "month": 5},
         ]
     )
-    expected_date_df["date"] = pd.to_datetime(expected_date_df["date"])
+    expected_date_df["date"] = pd.to_datetime(expected_date_df["date"], utc=True)
     date_df = hm.create_date_df(hm.df)
     assert_frame_equal(
         date_df.reset_index(drop=True),

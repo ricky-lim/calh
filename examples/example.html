@@ -13079,13 +13079,13 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # For debugging purposes</span>
-<span class="c1"># %load_ext autoreload</span>
-<span class="c1"># %autoreload 2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For debugging purposes</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
 
-<span class="c1"># from IPython.core.interactiveshell import InteractiveShell</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
 
-<span class="c1"># InteractiveShell.ast_node_interactivity = &quot;all&quot;</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
 </pre></div>
 
     </div>
@@ -13100,10 +13100,10 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="kn">from</span> <span class="nn">pyprojroot</span> <span class="kn">import</span> <span class="n">here</span>
+<span class="kn">from</span> <span class="nn">pyprojroot</span> <span class="k">import</span> <span class="n">here</span>
 
-<span class="kn">from</span> <span class="nn">calh.filter</span> <span class="kn">import</span> <span class="n">CalendarFilter</span>
-<span class="kn">from</span> <span class="nn">calh.visualization</span> <span class="kn">import</span> <span class="n">Heatmap</span>
+<span class="kn">from</span> <span class="nn">calh.filter</span> <span class="k">import</span> <span class="n">CalendarFilter</span>
+<span class="kn">from</span> <span class="nn">calh.visualization</span> <span class="k">import</span> <span class="n">Heatmap</span>
 </pre></div>
 
     </div>
@@ -13153,31 +13153,6 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_calendar</span><span class="p">(</span>
-    <span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">re_pattern</span><span class="o">=</span><span class="kc">None</span>
-<span class="p">):</span>
-    <span class="n">filtered_calendar</span> <span class="o">=</span> <span class="n">CalendarFilter</span><span class="p">(</span>
-        <span class="n">ics_file</span><span class="o">=</span><span class="n">input_file</span><span class="p">,</span>
-        <span class="n">re_pattern</span><span class="o">=</span><span class="n">re_pattern</span><span class="p">,</span>
-        <span class="n">start_date</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span>
-        <span class="n">end_date</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">filtered_calendar</span><span class="o">.</span><span class="n">filter_calendars</span><span class="p">()</span>
-
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_f</span><span class="p">:</span>
-        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">filtered_calendar</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="n">out_f</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Filter calendar</span>
 
 <span class="n">raw_data</span> <span class="o">=</span> <span class="n">here</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;examples&quot;</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;raw&quot;</span> <span class="o">/</span> <span class="s2">&quot;ics&quot;</span> <span class="o">/</span> <span class="s2">&quot;urlab.ics&quot;</span>
@@ -13212,7 +13187,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">single_hmap</span> <span class="o">=</span> <span class="n">Heatmap</span><span class="p">(</span><span class="n">input_data</span><span class="o">=</span><span class="n">processed_data_single_year</span><span class="p">,</span> <span class="n">full_year</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -13248,7 +13223,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hm</span> <span class="o">=</span> <span class="n">Heatmap</span><span class="p">(</span><span class="n">input_data</span><span class="o">=</span><span class="n">processed_data_multiple_year</span><span class="p">)</span>
