@@ -4,6 +4,14 @@ calh package
 Submodules
 ----------
 
+calh.app module
+---------------
+
+.. automodule:: calh.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 calh.cli module
 ---------------
 
