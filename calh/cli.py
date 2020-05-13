@@ -1,5 +1,4 @@
 """Console script for calh."""
-import json
 import sys
 
 import click

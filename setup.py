@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
 """The setup script."""
-
+import subprocess
 from setuptools import setup, find_packages
+from setuptools.command.develop import develop
+from setuptools.command.install import install
 
 with open("README.rst") as readme_file:
     readme = readme_file.read()
@@ -20,6 +22,9 @@ requirements = [
     "pandas>=1.0.3",
     "pyprojroot>=0.2.0",
     "seaborn>=0.10.1",
+    "voila>=0.1.21",
+    "ipyvuetify>=1.4.0",
+    "ipympl>=0.5.6",
 ]
 
 setup_requirements = ["pytest-runner", "ipython==7.13.0"]
@@ -28,6 +33,28 @@ test_requirements = [
     "pytest>=3",
     "pytest-mpl==0.11",
 ]
+
+
+def enable_nb_extension():
+    result = subprocess.run(
+        ['jupyter', 'nbextension', 'enable', '--py', '--sys-prefix', 'ipyvuetify']
+    )
+    result.check_returncode()
+
+
+class PostDevelopCommand(develop):
+    """Post-installation for development mode."""
+
+    def run(self):
+        develop.run(self)
+
+
+class PostInstallCommand(install):
+    """Post-installation for installation mode."""
+
+    def run(self):
+        install.run(self)
+
 
 setup(
     author="Ricky Lim",
@@ -45,7 +72,7 @@ setup(
         "Programming Language :: Python :: 3.8",
     ],
     description="Calendar Heatmap",
-    entry_points={"console_scripts": ["calh=calh.cli:cli",],},
+    entry_points={"console_scripts": ["calh=calh.cli:cli", ], },
     install_requires=requirements,
     license="Apache Software License 2.0",
     long_description=readme + "\n\n" + history,
@@ -60,4 +87,8 @@ setup(
     url="https://github.com/ricky-lim/calh",
     version="2.1.3",
     zip_safe=False,
+    cmdclass={
+        'develop': PostDevelopCommand,
+        'install': PostInstallCommand,
+    },
 )

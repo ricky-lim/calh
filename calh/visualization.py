@@ -1,10 +1,9 @@
 import calendar
 import datetime
 import json
-import math
 from datetime import timedelta
 from pathlib import Path
-from typing import Union, Dict, List
+from typing import Union, Dict, List, Optional
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -159,10 +158,17 @@ class Heatmap:
         years = sorted(self.get_unique_years(self.df), reverse=True)
         num_year = len(years)
         if width is None:
-            width = 20
+            width = 10
         if height is None:
-            height = 5 * num_year // 2
+            height = 5 * num_year // 3
+        plt.ioff()
+
         fig, axs = plt.subplots(num_year, figsize=(width, height), squeeze=False)
+        fig.set_tight_layout(dict(pad=0))
+        fig.canvas.toolbar_visible = False
+        fig.canvas.header_visible = False
+        fig.canvas.footer_visible = False
+
         fig.patch.set_facecolor("white")
         fig.tight_layout(pad=3.0)
         for idx, year in enumerate(years):
@@ -170,6 +176,8 @@ class Heatmap:
             ax = axs[idx, 0]
             self.draw_yearly(yearly_df=yearly_df, ax=ax, year=year)
         fig.suptitle(title.title(), fontsize=20, verticalalignment="top", y=1.1)
+        fig.canvas.draw()
+        fig.canvas.flush_events()
         self.result = fig
 
     @staticmethod

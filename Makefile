@@ -53,7 +53,7 @@ lint: ## check style with flake8
 
 
 test: ## run tests quickly with the default Python
-	pytest --mpl
+	pytest --mpl --async-test-timeout=250
 	jupyter nbconvert --execute examples/example.ipynb
 
 test-all: ## run tests on every Python version with tox

@@ -39,7 +39,7 @@ def test_date_df_for_heatmap_from_ics_input():
 )
 def test_create_heatmap_from_ics_input():
     input_file = CURR_DIR / "data" / "ics" / "02-04_05-05-2020_urlab.ics"
-    output_file = CURR_DIR / "data" / "png" / "02-04_05-05-2020_urlab.png"
+    # output_file = CURR_DIR / "data" / "png" / "02-04_05-05-2020_urlab.png"
     hm = Heatmap(input_data=input_file, full_year=True)
     hm.draw(title="test")
     return hm.result

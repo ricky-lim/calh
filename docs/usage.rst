@@ -18,3 +18,8 @@ To use calh as CLI
     --input-file examples/data/raw/ics/liverpool.ics \
     --title 'Liverpool Matches 2019/2020' \
     --output-file examples/data/processed/png/liverpool.png
+
+To use as a web-app
+
+    voila calh.ipynb --VoilaConfiguration.file_whitelist="['.*\.(png|ics)']"
+

@@ -3,12 +3,10 @@
 import json
 import re
 import warnings
-from collections import namedtuple
 from pathlib import Path
 from typing import Optional, List, Callable, Union
 
 import arrow
-from arrow import Arrow
 from ics import Calendar, Event
 
 DATE_FMT = "YYYY-MM-DD"
@@ -29,7 +27,7 @@ class CalendarFilter:
             input_file {Path} -- filepath to calendar file in ics format
 
         Keyword Arguments:
-            re_pattern {Optional[str]} -- regular expression pattern to 
+            re_pattern {Optional[str]} -- regular expression pattern to
             filter event.name and event.description (default: {None})
             start_date {Optional[str]} -- start date (inclusive) in YYYY-MM-DD (default: {None})
             end_date {Optional[str]} -- end date (inclusive) in YYYY-MM-DD (default: {None})
