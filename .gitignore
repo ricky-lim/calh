@@ -108,4 +108,7 @@ ENV/
 # Environment
 .envrc
 
+# HTML
+examples/example.html
+
 
