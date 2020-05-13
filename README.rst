@@ -35,10 +35,10 @@ Calendar Heatmap
 Inspired by `voila_spotify
 <https://github.com/voila-gallery/voila-spotify>`_, to create a heatmap for calendar data.
 
-You could explore the app, `here
+The app is available, `at_heroku
 <http://calh.herokuapp.com>`_.
 
-You could check out the notebook example, `here
+You could also check out the notebook example, `here
 <https://mybinder.org/v2/gh/ricky-lim/calh/master?filepath=examples%2Fexample.ipynb>`_.
 
 * Free software: Apache Software License 2.0
